@@ -104,7 +104,7 @@ useEffect(() => {
       <img
         src="/logo.png"
         alt="PEMBRIDGE TALENT"
-        className="w-[120px] md:w-[140px] object-contain"
+        className="w-[170px] md:w-[200px] object-contain"
       />
     </a>
 
@@ -159,7 +159,7 @@ bg-black/50"
 
         <div className="absolute inset-0 bg-black/60" />
 
-        <div className="relative z-10 text-center px-6">
+        <div className="relative z-10 text-center px-6 pt-32 md:pt-0">
           
           <p className="tracking-[0.4em] text-red-700 text-sm mb-6">
             JAPAN BILINGUAL TALENT SOLUTIONS
