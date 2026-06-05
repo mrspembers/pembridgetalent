@@ -12,7 +12,7 @@ export default function HomePage() {
 });
 
 const [loading, setLoading] = useState(false);
-
+const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 const [success, setSuccess] = useState(false);
 const [jobs, setJobs] = useState<any[]>([]);
 
@@ -96,57 +96,50 @@ useEffect(() => {
 
   return (
     <main className="bg-black text-white min-h-screen overflow-hidden">
-      {/* HEADER */}
+    {/* HEADER */}
 <header className="fixed top-0 left-0 w-full z-50 border-b border-white/10 bg-black/40 backdrop-blur-md">
-  
-  <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-    
-    <div className="flex items-center gap-4">
-      
+  <div className="relative max-w-7xl mx-auto px-6 py-4 flex items-center justify-center md:justify-between">
+
+    <a href="#" className="block">
       <img
         src="/logo.png"
         alt="PEMBRIDGE TALENT"
-        className="w-[140px] object-contain"
+        className="w-[120px] md:w-[140px] object-contain"
       />
+    </a>
 
-      <div>
-        <p className="tracking-[0.3em] text-xs text-white">
-          PEMBRIDGE TALENT
-        </p>
+    <nav className="hidden md:flex items-center gap-10 text-sm tracking-widest text-gray-300">
+      <a href="#about" className="hover:text-white transition">ABOUT</a>
+      <a href="#candidate" className="hover:text-white transition">CANDIDATE</a>
+      <a href="#clients" className="hover:text-white transition">COMPANIES</a>
+      <a href="#jobs" className="hover:text-white transition">JOBS</a>
+      <a href="#contact" className="hover:text-white transition">CONTACT</a>
+    </nav>
 
-        <p className="text-[10px] text-gray-500 mt-1">
-          JAPAN
-        </p>
-      </div>
-    </div>
-
- <nav className="hidden md:flex items-center gap-10 text-sm tracking-widest text-gray-300">
-
-  <a href="#about" className="hover:text-white transition">
-    ABOUT
-  </a>
-
-  <a href="#candidate" className="hover:text-white transition">
-    CANDIDATE
-  </a>
-
-  <a href="#clients" className="hover:text-white transition">
-    COMPANIES
-  </a>
-
-  <a href="#jobs" className="hover:text-white transition">
-    JOBS
-  </a>
-
-  <a href="#contact" className="hover:text-white transition">
-    CONTACT
-  </a>
-
-</nav>
-
+    <button
+      type="button"
+      onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+      className="md:hidden absolute right-6 flex flex-col gap-1"
+      aria-label="Open menu"
+    >
+      <span className="block w-7 h-[1px] bg-white"></span>
+      <span className="block w-7 h-[1px] bg-white"></span>
+      <span className="block w-7 h-[1px] bg-white"></span>
+    </button>
   </div>
+
+  {mobileMenuOpen && (
+    <div className="md:hidden border-t border-white/10 bg-black/95">
+      <nav className="flex flex-col items-center gap-6 py-8 text-sm tracking-[0.25em] text-gray-300">
+        <a href="#about" onClick={() => setMobileMenuOpen(false)}>ABOUT</a>
+        <a href="#candidate" onClick={() => setMobileMenuOpen(false)}>CANDIDATE</a>
+        <a href="#clients" onClick={() => setMobileMenuOpen(false)}>COMPANIES</a>
+        <a href="#jobs" onClick={() => setMobileMenuOpen(false)}>JOBS</a>
+        <a href="#contact" onClick={() => setMobileMenuOpen(false)}>CONTACT</a>
+      </nav>
+    </div>
+  )}
 </header>
-      
       {/* HERO */}
       <section className="relative h-screen flex items-center justify-center">
         
