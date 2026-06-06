@@ -178,13 +178,19 @@ bg-black/50"
 
           <div className="mt-10 flex flex-col md:flex-row gap-4 justify-center">
             
-            <button className="bg-red-700 hover:bg-red-800 transition px-8 py-4 tracking-widest text-sm">
-              VIEW OPPORTUNITIES
-            </button>
+           <a
+  href="#jobs"
+  className="bg-red-700 hover:bg-red-800 transition px-8 py-4 tracking-widest text-sm"
+>
+  VIEW OPPORTUNITIES
+</a>
 
-            <button className="bg-red-700 hover:bg-red-800 transition px-8 py-4 tracking-widest text-sm">
-              HIRE TALENT
-            </button>
+<a
+  href="#contact"
+  className="bg-red-700 hover:bg-red-800 transition px-8 py-4 tracking-widest text-sm"
+>
+  HIRE TALENT
+</a>
 
           </div>
         </div>
