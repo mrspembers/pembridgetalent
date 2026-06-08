@@ -7,7 +7,7 @@ export async function POST(req: Request) {
     const body = await req.json();
 
     await resend.emails.send({
-      from: "PEMBRIDGE TALENT <onboarding@resend.dev>",
+      from: "PEMBRIDGE TALENT <info@pembridgetalent.com>",
       to: process.env.CONTACT_EMAIL!,
       subject: "New Inquiry - PEMBRIDGE TALENT",
       html: `
