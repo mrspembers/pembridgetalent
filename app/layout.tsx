@@ -14,8 +14,10 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "PEMBRIDGE TALENT | Bilingual Recruitment & Executive Search in Japan",
+
   description:
     "PEMBRIDGE TALENT is a boutique recruitment and executive search firm connecting global companies with bilingual talent across Japan, Tokyo, Osaka and international markets.",
+
   keywords: [
     "bilingual recruitment Japan",
     "executive search Japan",
@@ -27,6 +29,11 @@ export const metadata = {
     "finance recruitment Japan",
     "IT recruitment Japan",
   ],
+
+  verification: {
+    google: "GXF1UeqdygQT9kbRK0pVRHDK3qtPUQIWNOpBjMoL_XE",
+  },
+
   openGraph: {
     title: "PEMBRIDGE TALENT | Bilingual Recruitment in Japan",
     description:
