@@ -5,9 +5,15 @@ const job = {
   fields: [
     {
       name: "title",
-      title: "Job Title",
+      title: "Job Title (EN)",
       type: "string",
     },
+    {
+      name: "titleJa",
+      title: "Job Title (JA)",
+      type: "string",
+    },
+
     {
       name: "slug",
       title: "Slug",
@@ -17,24 +23,48 @@ const job = {
         maxLength: 96,
       },
     },
+
     {
       name: "location",
-      title: "Location",
+      title: "Location (EN)",
       type: "string",
     },
+    {
+      name: "locationJa",
+      title: "Location (JA)",
+      type: "string",
+    },
+
     {
       name: "category",
-      title: "Category",
+      title: "Category (EN)",
       type: "string",
     },
+    {
+      name: "categoryJa",
+      title: "Category (JA)",
+      type: "string",
+    },
+
     {
       name: "salary",
-      title: "Salary",
+      title: "Salary (EN)",
       type: "string",
     },
     {
+      name: "salaryJa",
+      title: "Salary (JA)",
+      type: "string",
+    },
+
+    {
       name: "description",
-      title: "Description",
+      title: "Description (EN)",
+      type: "text",
+    },
+    {
+      name: "descriptionJa",
+      title: "Description (JA)",
       type: "text",
     },
   ],

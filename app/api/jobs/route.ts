@@ -4,12 +4,23 @@ export async function GET() {
   const jobs = await client.fetch(`
     *[_type == "job"] | order(_createdAt desc) {
       _id,
+
       title,
+      titleJa,
+
       slug,
+
       location,
+      locationJa,
+
       category,
+      categoryJa,
+
       salary,
-      description
+      salaryJa,
+
+      description,
+      descriptionJa
     }
   `);
 
