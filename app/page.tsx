@@ -591,17 +591,21 @@ bg-black/50"
       
       <div>
         <p className="text-red-700 tracking-[0.3em] text-sm mb-4">
-          JOBS
-        </p>
+  {language === "en" ? "JOBS" : "求人情報"}
+</p>
 
         <h2 className="text-4xl md:text-5xl leading-tight">
-          Featured Roles
-        </h2>
+  {language === "en"
+    ? "Featured Roles"
+    : "厳選求人"}
+</h2>
       </div>
 
       <button className="hidden md:block border border-white/20 px-6 py-3 text-sm tracking-widest hover:bg-white hover:text-black transition">
-        VIEW ALL
-      </button>
+  {language === "en"
+    ? "VIEW ALL"
+    : "すべて見る"}
+</button>
 
     </div>
 
@@ -663,9 +667,10 @@ bg-black/50"
   onClick={() => handleApply(job.title)}
   className="inline-block border border-white/20 px-5 py-3 text-sm tracking-widest hover:bg-white hover:text-black transition"
 >
-  APPLY
+  {language === "en"
+    ? "APPLY"
+    : "応募する"}
 </button>
-
       </div>
     </div>
   </div>
@@ -676,38 +681,43 @@ bg-black/50"
   id="contact"
   className="relative py-32 px-6 md:px-20 border-t border-white/10 overflow-hidden"
 >
-
-  {/* BACKGROUND IMAGE */}
   <img
     src="/contact.png"
     alt="Luxury corporate background"
     className="absolute inset-0 w-full h-full object-cover opacity-60"
   />
 
-  {/* DARK OVERLAY */}
   <div className="absolute inset-0 bg-black/30" />
 
-  {/* CONTENT */}
   <div className="relative z-10 max-w-5xl mx-auto text-center">
     <form onSubmit={handleSubmit}>
       <p className="text-red-700 tracking-[0.3em] text-sm mb-6">
-        CONTACT
+        {language === "en" ? "CONTACT" : "お問い合わせ"}
       </p>
 
       <h2 className="text-4xl md:text-6xl leading-tight mb-8">
-        Let’s Build Exceptional Teams Together
+        {language === "en" ? (
+          <>Let’s Build Exceptional Teams Together</>
+        ) : (
+          <>
+            採用とキャリアの可能性を、
+            <br />
+            ともに広げる。
+          </>
+        )}
       </h2>
 
       <p className="text-gray-400 max-w-3xl mx-auto leading-8 mb-16">
-        Whether you are searching for transformative talent or exploring your next career move,
-        PEMBRIDGE TALENT provides discreet and globally minded recruitment solutions.
+        {language === "en"
+          ? "Whether you are searching for transformative talent or exploring your next career move, PEMBRIDGE TALENT provides discreet and globally minded recruitment solutions."
+          : "優秀なバイリンガル人材をお探しの企業様も、次のキャリア機会をお探しの候補者様も、PEMBRIDGE TALENTが機密性とグローバルな視点を大切にしながら丁寧にサポートします。"}
       </p>
 
       <div className="space-y-6 text-left">
         <input
           type="text"
           name="name"
-          placeholder="Your Name *"
+          placeholder={language === "en" ? "Your Name *" : "お名前 *"}
           required
           value={form.name}
           onChange={handleChange}
@@ -717,7 +727,7 @@ bg-black/50"
         <input
           type="email"
           name="email"
-          placeholder="Your Email *"
+          placeholder={language === "en" ? "Your Email *" : "メールアドレス *"}
           required
           value={form.email}
           onChange={handleChange}
@@ -727,7 +737,7 @@ bg-black/50"
         <input
           type="text"
           name="company"
-          placeholder="Company"
+          placeholder={language === "en" ? "Company" : "会社名"}
           value={form.company}
           onChange={handleChange}
           className="w-full bg-black border border-white/20 px-6 py-5 outline-none focus:border-red-700 transition"
@@ -736,7 +746,7 @@ bg-black/50"
         <input
           type="text"
           name="department"
-          placeholder="Department"
+          placeholder={language === "en" ? "Department" : "部署名"}
           value={form.department}
           onChange={handleChange}
           className="w-full bg-black border border-white/20 px-6 py-5 outline-none focus:border-red-700 transition"
@@ -745,24 +755,23 @@ bg-black/50"
 
       <div className="mt-6 text-left">
         <p className="text-gray-400 mb-3 tracking-[0.25em] text-xs">
-          UPLOAD CV (RESUME)/JOB DESCRIPTION
+          {language === "en"
+            ? "UPLOAD CV (RESUME) / JOB DESCRIPTION"
+            : "履歴書・職務経歴書 / 求人票のアップロード"}
         </p>
 
         <div className="border border-dashed border-white/20 px-6 py-6 text-center hover:border-red-700 transition">
-          <input
-            type="file"
-            className="text-sm text-gray-400"
-          />
+          <input type="file" className="text-sm text-gray-400" />
 
           <p className="text-gray-600 text-xs mt-3">
-            PDF, DOCX up to 10MB
+            {language === "en" ? "PDF, DOCX up to 10MB" : "PDF・DOCX形式 / 最大10MB"}
           </p>
         </div>
       </div>
 
       <textarea
         name="message"
-        placeholder="Your Message *"
+        placeholder={language === "en" ? "Your Message *" : "お問い合わせ内容 *"}
         required
         value={form.message}
         onChange={handleChange}
@@ -775,12 +784,20 @@ bg-black/50"
         disabled={loading}
         className="w-full mt-8 border border-red-700 text-red-600 hover:bg-red-700 hover:text-white transition px-10 py-5 tracking-[0.3em] text-sm"
       >
-        {loading ? "SENDING..." : "SEND MESSAGE"}
+        {loading
+          ? language === "en"
+            ? "SENDING..."
+            : "送信中..."
+          : language === "en"
+          ? "SEND MESSAGE"
+          : "送信する"}
       </button>
 
       {success && (
         <p className="mt-6 text-green-500 tracking-widest text-sm">
-          MESSAGE SENT SUCCESSFULLY
+          {language === "en"
+            ? "MESSAGE SENT SUCCESSFULLY"
+            : "送信が完了しました"}
         </p>
       )}
     </form>
@@ -805,15 +822,24 @@ bg-black/50"
 </p>
     </div>
 
-   <div className="flex items-center gap-8 text-sm tracking-widest text-gray-400">
-
+   <div className="flex gap-8 text-sm tracking-[0.15em] uppercase">
   <a
     href="/privacy-policy"
-    className="hover:text-white transition"
+    className="text-gray-500 hover:text-red-600 transition"
   >
-    PRIVACY POLICY
+    {language === "en"
+      ? "Privacy Policy"
+      : "プライバシーポリシー"}
   </a>
 
+  <a
+    href="/terms"
+    className="text-gray-500 hover:text-red-600 transition"
+  >
+    {language === "en"
+      ? "Terms of Use"
+      : "利用規約"}
+  </a>
 </div>
 
   </div>

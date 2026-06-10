@@ -1,74 +1,97 @@
 export default function PrivacyPolicyPage() {
   return (
     <main className="min-h-screen bg-black text-white px-6 md:px-20 py-32">
-      
       <div className="max-w-4xl mx-auto">
 
         <p className="text-red-700 tracking-[0.3em] text-sm mb-6">
           PRIVACY POLICY
         </p>
 
-        <h1 className="text-5xl md:text-6xl mb-12">
+        <h1 className="text-5xl md:text-7xl mb-16">
           Privacy Policy
         </h1>
 
-        <div className="space-y-10 text-gray-300 leading-8">
+        <div className="space-y-12 text-gray-400 leading-8">
 
-          <p>
-            PEMBRIDGE TALENT is committed to protecting and respecting your privacy.
-            This Privacy Policy explains how we collect, use and safeguard your
-            personal information when you interact with our website and recruitment services.
-          </p>
-
-          <div>
-            <h2 className="text-2xl text-white mb-4">
-              Information We Collect
+          <section>
+            <h2 className="text-white text-2xl mb-4">
+              1. Information We Collect
             </h2>
 
             <p>
-              We may collect personal information including your name, email address,
-              CV/resume, employment history and any additional information you provide
-              through our contact forms or recruitment processes.
+              Pembridge Talent may collect personal information including
+              your name, email address, company information, CV/resume,
+              employment history and any information voluntarily submitted
+              through our website or recruitment process.
             </p>
-          </div>
+          </section>
 
-          <div>
-            <h2 className="text-2xl text-white mb-4">
-              How We Use Information
+          <section>
+            <h2 className="text-white text-2xl mb-4">
+              2. How We Use Your Information
             </h2>
 
             <p>
-              Your information is used solely for recruitment-related purposes,
-              including candidate evaluation, client introductions, communication
-              regarding opportunities and improving our recruitment services.
+              We use your information to provide recruitment services,
+              communicate regarding employment opportunities, assess
+              candidate suitability, respond to enquiries and improve our
+              services.
             </p>
-          </div>
+          </section>
 
-          <div>
-            <h2 className="text-2xl text-white mb-4">
-              Data Protection
+          <section>
+            <h2 className="text-white text-2xl mb-4">
+              3. Information Sharing
             </h2>
 
             <p>
-              We implement appropriate technical and organizational measures to
-              protect your personal information from unauthorized access, disclosure
-              or misuse.
+              Personal information may be shared with clients, hiring
+              organisations or trusted service providers solely for the
+              purpose of delivering recruitment services and business
+              operations.
             </p>
-          </div>
+          </section>
 
-          <div>
-            <h2 className="text-2xl text-white mb-4">
-              Contact
+          <section>
+            <h2 className="text-white text-2xl mb-4">
+              4. Cookies & Analytics
             </h2>
 
             <p>
-              For any questions regarding this Privacy Policy, please contact:
+              This website uses cookies, Google Analytics and similar
+              technologies to understand website usage, improve user
+              experience and monitor website performance.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-white text-2xl mb-4">
+              5. Data Security
+            </h2>
+
+            <p>
+              We take reasonable administrative, technical and
+              organisational measures to protect personal information from
+              unauthorised access, disclosure, alteration or destruction.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-white text-2xl mb-4">
+              6. Contact Information
+            </h2>
+
+            <p>
+              If you have any questions regarding this Privacy Policy,
+              please contact:
             </p>
 
-            <p className="mt-4 text-white">
+            <p className="mt-4">
+              PEMBRIDGE TALENT
+              <br />
               info@pembridgetalent.com
             </p>
-          </div>
+          </section>
 
         </div>
       </div>
