@@ -105,16 +105,30 @@ useEffect(() => {
       <img
         src="/logo.png"
         alt="PEMBRIDGE TALENT"
-        className="w-[170px] md:w-[200px] object-contain"
+        className="w-[150px] md:w-[170px] object-contain"
       />
     </a>
 
-    <nav className="hidden md:flex items-center gap-10 text-sm tracking-widest text-gray-300">
-      <a href="#about" className="hover:text-white transition">ABOUT</a>
-      <a href="#candidate" className="hover:text-white transition">CANDIDATE</a>
-      <a href="#clients" className="hover:text-white transition">COMPANIES</a>
-      <a href="#jobs" className="hover:text-white transition">JOBS</a>
-      <a href="#contact" className="hover:text-white transition">CONTACT</a>
+    <nav className="hidden md:flex items-center gap-6 text-xs tracking-widest text-gray-300">
+      <a href="#about" className="hover:text-white transition">
+  {language === "en" ? "ABOUT" : "会社概要"}
+</a>
+
+<a href="#candidate" className="hover:text-white transition">
+  {language === "en" ? "CANDIDATE" : "候補者向け"}
+</a>
+
+<a href="#clients" className="hover:text-white transition">
+  {language === "en" ? "COMPANIES" : "企業向け"}
+</a>
+
+<a href="#jobs" className="hover:text-white transition">
+  {language === "en" ? "JOBS" : "求人情報"}
+</a>
+
+<a href="#contact" className="hover:text-white transition">
+  {language === "en" ? "CONTACT" : "お問い合わせ"}
+</a>
     <button
   type="button"
   onClick={() => setLanguage(language === "en" ? "jp" : "en")}
@@ -139,11 +153,21 @@ useEffect(() => {
   {mobileMenuOpen && (
     <div className="md:hidden border-t border-white/10 bg-black/95">
       <nav className="flex flex-col items-center gap-6 py-8 text-sm tracking-[0.25em] text-gray-300">
-        <a href="#about" onClick={() => setMobileMenuOpen(false)}>ABOUT</a>
-        <a href="#candidate" onClick={() => setMobileMenuOpen(false)}>CANDIDATE</a>
-        <a href="#clients" onClick={() => setMobileMenuOpen(false)}>COMPANIES</a>
-        <a href="#jobs" onClick={() => setMobileMenuOpen(false)}>JOBS</a>
-        <a href="#contact" onClick={() => setMobileMenuOpen(false)}>CONTACT</a>
+        <a href="#about" onClick={() => setMobileMenuOpen(false)}>
+          {language === "en" ? "ABOUT" : "会社概要"}
+        </a>
+        <a href="#candidate" onClick={() => setMobileMenuOpen(false)}>
+          {language === "en" ? "CANDIDATE" : "候補者向け"}
+        </a>
+        <a href="#clients" onClick={() => setMobileMenuOpen(false)}>
+          {language === "en" ? "COMPANIES" : "企業向け"}
+        </a>
+        <a href="#jobs" onClick={() => setMobileMenuOpen(false)}>
+          {language === "en" ? "JOBS" : "求人情報"}
+        </a>
+        <a href="#contact" onClick={() => setMobileMenuOpen(false)}>
+          {language === "en" ? "CONTACT" : "お問い合わせ"}
+        </a>
       <button
   type="button"
   onClick={() => setLanguage(language === "en" ? "jp" : "en")}
@@ -222,9 +246,9 @@ bg-black/50"
   <div className="max-w-7xl mx-auto">
 
     <div className="max-w-4xl mb-16">
-      <p className="text-red-700 tracking-[0.3em] text-sm mb-6">
-        ABOUT PEMBRIDGE TALENT
-      </p>
+     <p className="text-red-700 tracking-[0.3em] text-sm mb-6">
+  {language === "en" ? "ABOUT PEMBRIDGE TALENT" : "PEMBRIDGE TALENTについて"}
+</p>
 
       <h2 className="text-4xl md:text-6xl leading-tight">
         {language === "en"
@@ -285,8 +309,8 @@ bg-black/50"
   <div className="max-w-7xl mx-auto">
     <div className="max-w-4xl mb-20">
       <p className="text-red-700 tracking-[0.3em] text-sm mb-6">
-        CANDIDATES 
-      </p>
+  {language === "en" ? "CANDIDATE SERVICES" : "候補者向けサービス"}
+</p>
 
       <h2 className="text-4xl md:text-6xl leading-tight">
   {language === "en" ? (
@@ -380,7 +404,7 @@ bg-black/50"
 <div className="max-w-7xl mx-auto">
   <div className="text-center">
     <p className="tracking-[0.4em] text-red-700 text-sm mb-4">
-      {language === "en" ? "CANDIDATE TESTIMONIALS" : "求職者様の声"}
+      {language === "en" ? "CANDIDATE TESTIMONIALS" : "候補者様の声"}
     </p>
   </div>
 
@@ -395,7 +419,7 @@ bg-black/50"
         title:
           language === "en"
             ? "Executive Level Bilingual Candidate"
-            : "エグゼクティブレベル バイリンガル求職者",
+            : "エグゼクティブレベル バイリンガル候補者",
       },
       {
         quote:
@@ -406,7 +430,7 @@ bg-black/50"
         title:
           language === "en"
             ? "Senior Level Bilingual Candidate"
-            : "シニアレベル バイリンガル求職者",
+            : "シニアレベル バイリンガル候補者",
       },
       {
         quote:
@@ -417,7 +441,7 @@ bg-black/50"
         title:
           language === "en"
             ? "Senior Bilingual Candidate"
-            : "シニア バイリンガル求職者",
+            : "シニア バイリンガル候補者",
       },
       {
         quote:
@@ -428,7 +452,7 @@ bg-black/50"
         title:
           language === "en"
             ? "Senior Level Bilingual Candidate"
-            : "シニアレベル バイリンガル求職者",
+            : "シニアレベル バイリンガル候補者",
       },
     ].map((story) => (
       <div
