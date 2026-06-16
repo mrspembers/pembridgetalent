@@ -1,15 +1,16 @@
 "use client";
 
 import { useLanguage } from "../../context/LanguageContext";
+import Header from "../../components/Header";
 
 export default function JobDetailClient({ job }: { job: any }) {
   const { language } = useLanguage();
 
   const title = language === "en" ? job.title : job.titleJa || job.title;
   const location = language === "en" ? job.location : job.locationJa || job.location;
-  const category = language === "en" ? job.category : job.categoryJa || job.category;
+
   const salary = language === "en" ? job.salary : job.salaryJa || job.salary;
-  const industry = language === "en" ? job.industry : job.industryJa || job.industry;
+  const company = language === "en" ? job.company : job.companyJa || job.company;
   const introduction =
     language === "en"
       ? job.introduction || job.description
@@ -26,10 +27,12 @@ export default function JobDetailClient({ job }: { job: any }) {
       : job.requirementsJa || job.requirements;
 
   return (
+      <>
+    <Header />
     <main className="min-h-screen bg-black text-white px-6 md:px-20 py-32">
       <div className="max-w-5xl mx-auto">
         <p className="text-red-700 tracking-[0.3em] text-sm mb-6">
-          {location} / {category}
+          {location} / {company}
         </p>
 
         <h1 className="text-5xl md:text-7xl mb-10">{title}</h1>
@@ -44,9 +47,9 @@ export default function JobDetailClient({ job }: { job: any }) {
 
           <div className="border border-white/10 p-6 bg-black/40">
             <p className="text-gray-500 text-sm tracking-[0.3em] mb-3">
-              {language === "en" ? "INDUSTRY" : "業界"}
+             {language === "en" ? "COMPANY" : "企業"}
             </p>
-            <p className="text-2xl">{industry || category}</p>
+            <p className="text-2xl">{company}</p>
           </div>
         </div>
 
@@ -99,5 +102,6 @@ export default function JobDetailClient({ job }: { job: any }) {
         </a>
       </div>
     </main>
+      </>
   );
 }
