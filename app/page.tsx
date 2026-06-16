@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { useLanguage } from "./context/LanguageContext";
 
 export default function HomePage() {
   const [form, setForm] = useState({
@@ -15,7 +17,7 @@ const [loading, setLoading] = useState(false);
 const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 const [success, setSuccess] = useState(false);
 const [jobs, setJobs] = useState<any[]>([]);
-const [language, setLanguage] = useState<"en" | "jp">("en");
+const { language, setLanguage } = useLanguage();
 
 const handleChange = (
   e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -60,7 +62,10 @@ const handleSubmit = async (
 const handleApply = (jobTitle: string) => {
   setForm({
     ...form,
-    message: `I would like to apply for the ${jobTitle} position.`,
+    message:
+      language === "en"
+        ? `I would like to apply for the ${jobTitle} position.`
+        : `${jobTitle}のポジションに応募希望です。`,
   });
 
   setTimeout(() => {
@@ -81,19 +86,22 @@ useEffect(() => {
   const params = new URLSearchParams(window.location.search);
   const applyJob = params.get("apply");
 
-  if (applyJob) {
-    setForm((prev) => ({
-      ...prev,
-      message: `I would like to apply for the ${applyJob} position.`,
-    }));
+ if (applyJob) {
+  setForm((prev) => ({
+    ...prev,
+    message:
+      language === "en"
+        ? `I would like to apply for the ${applyJob} position.`
+        : `${applyJob}のポジションに応募希望です。`,
+  }));
 
-    setTimeout(() => {
-      document.getElementById("contact")?.scrollIntoView({
-        behavior: "smooth",
-      });
-    }, 300);
-  }
-}, []);
+  setTimeout(() => {
+    document.getElementById("contact")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  }, 300);
+}
+}, [language]);
 
   return (
     <main className="bg-black text-white min-h-screen overflow-hidden">
@@ -170,7 +178,10 @@ useEffect(() => {
         </a>
       <button
   type="button"
-  onClick={() => setLanguage(language === "en" ? "jp" : "en")}
+  onClick={() => {
+  setLanguage(language === "en" ? "jp" : "en");
+  setMobileMenuOpen(false);
+}}
   className="border border-white/20 px-4 py-2 hover:bg-white hover:text-black transition"
 >
   {language === "en" ? "JP" : "EN"}
@@ -183,13 +194,12 @@ useEffect(() => {
       <section className="relative h-screen flex items-center justify-center">
         
         <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-50+
-bg-black/50"
-        >
+  autoPlay
+  muted
+  loop
+  playsInline
+  className="absolute inset-0 w-full h-full object-cover opacity-50"
+>
           <source
   src="/hero.mp4"
   type="video/mp4"
@@ -198,18 +208,33 @@ bg-black/50"
 
         <div className="absolute inset-0 bg-black/60" />
 
-        <div className="relative z-10 text-center px-6 pt-32 md:pt-0">
+        <div className="relative z-10 text-center px-6">
           
-          <p className="tracking-[0.4em] text-red-700 text-sm mb-6">
-            JAPAN BILINGUAL TALENT SOLUTIONS
-          </p>
+          <motion.p
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{
+    duration: 1,
+    delay: 0.3,
+  }}
+  className="tracking-[0.4em] text-red-700 text-sm mb-6"
+>
+  JAPAN BILINGUAL TALENT SOLUTIONS
+</motion.p>
 
-          <h1 className="text-6xl md:text-8xl font-semibold leading-tight">
-            Built on Trust.
-        
-            <br />
-            Driven by Results.
-          </h1>
+<motion.h1
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{
+    duration: 1,
+    ease: "easeOut",
+  }}
+  className="text-6xl md:text-8xl font-semibold leading-tight"
+>
+  Built on Trust.
+  <br />
+  Driven by Results.
+</motion.h1>
 
           <p className="text-gray-300 mt-8">
   {language === "en"
@@ -245,7 +270,7 @@ bg-black/50"
 >
   <div className="max-w-7xl mx-auto">
 
-    <div className="max-w-4xl mb-16">
+    <div className="max-w-4xl mb-20">
      <p className="text-red-700 tracking-[0.3em] text-sm mb-6">
   {language === "en" ? "ABOUT PEMBRIDGE TALENT" : "PEMBRIDGE TALENTについて"}
 </p>
@@ -258,27 +283,57 @@ bg-black/50"
     </div>
 
     <div className="relative mb-20 overflow-hidden">
-      <img
-        src="/about.png"
-        alt="Minimal luxury architecture"
-        className="w-full h-[520px] object-cover"
-      />
-      <div className="absolute inset-0 bg-black/20" />
-    </div>
+ <motion.div
+  initial={{ opacity: 0, y: 28 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.25 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  className="relative mb-20 overflow-hidden border border-white/10"
+>
+  <img
+    src="/about.png"
+    alt="Global recruitment network"
+    className="w-full h-[520px] object-cover"
+  />
+  <div className="absolute inset-0 bg-black/20" />
+</motion.div>
 
-    <div className="max-w-3xl ml-auto space-y-7 text-gray-400 text-lg leading-8">
+<motion.div
+  initial={{ opacity: 0, y: 28 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.25 }}
+  transition={{ duration: 0.8, delay: 0.12, ease: "easeOut" }}
+  className="max-w-3xl ml-auto space-y-7 text-gray-400 text-lg leading-8"
+>
   {language === "en" ? (
     <>
       <p>
-        Pembridge Talent is a specialist bilingual recruitment agency in Japan, connecting exceptional Japanese-English bilingual professionals with leading multinational corporations and domestic companies across the Japanese market. We partner with organisations across both B2B and B2C industries, delivering tailored recruitment and executive search solutions for companies seeking top bilingual talent in Japan.
+        Pembridge Talent is a specialist bilingual recruitment agency in Japan,
+        connecting exceptional Japanese-English bilingual professionals with
+        leading multinational corporations and domestic companies across the
+        Japanese market. We partner with organisations across both B2B and B2C
+        industries, delivering tailored recruitment and executive search
+        solutions for companies seeking top bilingual talent in Japan.
       </p>
 
       <p>
-        Our expertise covers a wide range of corporate functions including Marketing, Finance, Accounting, HR, Sales, Supply Chain, Operations, Digital, E-commerce, and senior commercial leadership roles. We support hiring across industries including Consumer Goods, FMCG, Luxury, Retail, Technology, Professional Services, Healthcare, Manufacturing & Industrial and other internationally focused sectors where bilingual communication and cross-cultural experience are essential.
+        Our expertise covers a wide range of corporate functions including
+        Marketing, Finance, Accounting, HR, Sales, Supply Chain, Operations,
+        Digital, E-commerce, and senior commercial leadership roles. We support
+        hiring across industries including Consumer Goods, FMCG, Luxury, Retail,
+        Technology, Professional Services, Healthcare, Manufacturing &
+        Industrial and other internationally focused sectors where bilingual
+        communication and cross-cultural experience are essential.
       </p>
 
       <p>
-        As an experienced recruitment consultancy in Japan, Pembridge Talent understands the unique challenges of hiring bilingual professionals and international talent within the Japanese market. We work closely with both employers and candidates to create successful long-term matches, helping companies hire high-performing professionals while supporting candidates searching for bilingual jobs, English-speaking jobs, and international career opportunities in Japan.
+        As an experienced recruitment consultancy in Japan, Pembridge Talent
+        understands the unique challenges of hiring bilingual professionals and
+        international talent within the Japanese market. We work closely with
+        both employers and candidates to create successful long-term matches,
+        helping companies hire high-performing professionals while supporting
+        candidates searching for bilingual jobs, English-speaking jobs, and
+        international career opportunities in Japan.
       </p>
     </>
   ) : (
@@ -297,6 +352,7 @@ bg-black/50"
       </p>
     </>
   )}
+</motion.div>
 </div>
 
   </div>
@@ -392,21 +448,33 @@ bg-black/50"
 
 </div>
 {/* CANDIDATE IMAGE */}
-<div className="mb-20 overflow-hidden border border-white/10">
+<motion.div
+  initial={{ opacity: 0, y: 28 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.25 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  className="mb-20 overflow-hidden border border-white/10"
+>
   <img
     src="/candidate.png"
     alt="Bilingual professional"
     className="w-full h-[620px] object-cover"
   />
-</div>
+</motion.div>
 
 {/* CANDIDATE TESTIMONIALS */}
 <div className="max-w-7xl mx-auto">
-  <div className="text-center">
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.4 }}
+    transition={{ duration: 0.7, ease: "easeOut" }}
+    className="text-center"
+  >
     <p className="tracking-[0.4em] text-red-700 text-sm mb-4">
       {language === "en" ? "CANDIDATE TESTIMONIALS" : "候補者様の声"}
     </p>
-  </div>
+  </motion.div>
 
   <div className="grid md:grid-cols-2 gap-6">
     {[
@@ -454,10 +522,18 @@ bg-black/50"
             ? "Senior Level Bilingual Candidate"
             : "シニアレベル バイリンガル候補者",
       },
-    ].map((story) => (
-      <div
+    ].map((story, index) => (
+      <motion.div
         key={story.name}
-        className="border border-white/10 p-8 bg-black/40 hover:border-red-700 transition"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.25 }}
+        transition={{
+          duration: 0.65,
+          delay: index * 0.08,
+          ease: "easeOut",
+        }}
+        className="border border-white/10 p-8 bg-black/40 hover:-translate-y-2 hover:border-red-700 transition-all duration-500"
       >
         <p className="text-gray-300 leading-8 mb-8">“{story.quote}”</p>
 
@@ -465,7 +541,7 @@ bg-black/50"
           <p className="text-white tracking-widest text-sm">{story.name}</p>
           <p className="text-gray-500 text-sm mt-2">{story.title}</p>
         </div>
-      </div>
+      </motion.div>
     ))}
   </div>
 </div>
@@ -549,62 +625,82 @@ bg-black/50"
       )}
     </div>
 
-    {/* CLIENT IMAGE */}
-    <div className="mt-20 mb-20 overflow-hidden border border-white/10">
-      <img
-        src="/client.png"
-        alt="Client services"
-        className="w-full h-[520px] object-cover"
-      />
-    </div>
+   {/* CLIENT IMAGE */}
+<motion.div
+  initial={{ opacity: 0, y: 28 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.25 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  className="mt-20 mb-20 overflow-hidden border border-white/10"
+>
+  <img
+    src="/client.png"
+    alt="Client services"
+    className="w-full h-[520px] object-cover"
+  />
+</motion.div>
 
-    {/* CLIENT TESTIMONIALS */}
-    <div className="text-center">
-      <p className="tracking-[0.4em] text-red-700 text-sm mb-4">
-        {language === "en" ? "COMPANY TESTIMONIALS" : "企業様の声"}
-      </p>
-    </div>
+{/* CLIENT TESTIMONIALS */}
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.4 }}
+  transition={{ duration: 0.7, ease: "easeOut" }}
+  className="text-center"
+>
+  <p className="tracking-[0.4em] text-red-700 text-sm mb-4">
+    {language === "en" ? "COMPANY TESTIMONIALS" : "企業様の声"}
+  </p>
+</motion.div>
 
-    <div className="grid md:grid-cols-3 gap-6">
-      {[
-        {
-          quote:
-            language === "en"
-              ? "When hiring for my team, they are always the first people I contact because they consistently deliver exceptional results and high-performing talent. More than recruiters, they are trusted advisors and business partners."
-              : "チーム採用を行う際は、まず最初に相談しています。常に高い成果を出し、優秀な人材を紹介してくれるからです。単なるリクルーターではなく、信頼できるアドバイザーであり、ビジネスパートナーです。",
-          company: "Executive, US Company",
-        },
-        {
-          quote:
-            language === "en"
-              ? "As part of a major transformation program in Japan, we needed highly skilled bilingual professionals. They quickly understood both the direction of the business and the soft skills required. We successfully hired several strong professionals and I would highly recommend working with them."
-              : "日本での組織変革プロジェクトにおいて、高いスキルを持つバイリンガル人材の採用が必要でした。事業の方向性や求めるソフトスキルを素早く理解し、複数の優秀な人材の採用につなげてくれました。",
-          company: "Executive, US Company",
-        },
-        {
-          quote:
-            language === "en"
-              ? "A highly focused and dedicated recruiter who took the time to truly understand our business needs and challenges. Despite our difficult office location outside central Tokyo, they successfully convinced excellent candidates to join our organization. Highly recommended."
-              : "私たちの事業ニーズや課題を丁寧に理解してくれる、非常に集中力と献身性の高いリクルーターです。都心から離れた難しい勤務地にもかかわらず、優秀な候補者を説得し、入社につなげてくれました。",
-          company: "Executive, European Company",
-        },
-      ].map((story, index) => (
-        <div
-          key={index}
-          className="border border-white/10 p-8 bg-black/40 hover:border-red-700 transition"
-        >
-          <p className="text-gray-300 leading-8 mb-10">“{story.quote}”</p>
+<div className="grid md:grid-cols-3 gap-6">
+  {[
+    {
+      quote:
+        language === "en"
+          ? "When hiring for my team, they are always the first people I contact because they consistently deliver exceptional results and high-performing talent. More than recruiters, they are trusted advisors and business partners."
+          : "チーム採用を行う際は、まず最初に相談しています。常に高い成果を出し、優秀な人材を紹介してくれるからです。単なるリクルーターではなく、信頼できるアドバイザーであり、ビジネスパートナーです。",
+      company: "Executive, US Company",
+    },
+    {
+      quote:
+        language === "en"
+          ? "As part of a major transformation program in Japan, we needed highly skilled bilingual professionals. They quickly understood both the direction of the business and the soft skills required. We successfully hired several strong professionals and I would highly recommend working with them."
+          : "日本での組織変革プロジェクトにおいて、高いスキルを持つバイリンガル人材の採用が必要でした。事業の方向性や求めるソフトスキルを素早く理解し、複数の優秀な人材の採用につなげてくれました。",
+      company: "Executive, US Company",
+    },
+    {
+      quote:
+        language === "en"
+          ? "A highly focused and dedicated recruiter who took the time to truly understand our business needs and challenges. Despite our difficult office location outside central Tokyo, they successfully convinced excellent candidates to join our organization. Highly recommended."
+          : "私たちの事業ニーズや課題を丁寧に理解してくれる、非常に集中力と献身性の高いリクルーターです。都心から離れた難しい勤務地にもかかわらず、優秀な候補者を説得し、入社につなげてくれました。",
+      company: "Executive, European Company",
+    },
+  ].map((story, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.25 }}
+      transition={{
+        duration: 0.65,
+        delay: index * 0.08,
+        ease: "easeOut",
+      }}
+      className="border border-white/10 p-8 bg-black/40 hover:-translate-y-2 hover:border-red-700 transition-all duration-500"
+    >
+      <p className="text-gray-300 leading-8 mb-10">“{story.quote}”</p>
 
-          <div className="border-t border-white/10 pt-5">
-            <p className="text-gray-500 text-sm tracking-widest">
-              {story.company}
-            </p>
-          </div>
-        </div>
-      ))}
-    </div>
+      <div className="border-t border-white/10 pt-5">
+        <p className="text-gray-500 text-sm tracking-widest">
+          {story.company}
+        </p>
+      </div>
+    </motion.div>
+  ))}
+</div>
 
-  </div>
+</div>
 </section>
 {/* LIVE JOBS */}
 <section id="jobs" className="py-32 px-6 md:px-20 border-t border-white/10 bg-[#070707]">
