@@ -842,47 +842,40 @@ useEffect(() => {
 </section>
 
 {/* FOOTER */}
-<footer className="border-t border-white/10 py-12 px-6 md:px-20">
-  
-  <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-    
+<footer className="border-t border-white/10 px-6 md:px-20 py-16">
+  <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10 items-start">
     <div>
-      <p className="tracking-[0.3em] text-sm">
+      <p className="tracking-[0.35em] text-white text-sm mb-4">
         PEMBRIDGE TALENT
       </p>
-
-      <p className="text-gray-500 text-sm mt-2">
+      <p className="text-gray-500 mb-6">
         Japan Recruitment Boutique
       </p>
-      <p className="text-gray-600 text-sm mt-4">
-  © 2026 PEMBRIDGE TALENT. All Rights Reserved.
-</p>
+      <p className="text-gray-600 text-sm tracking-[0.15em]">
+        RECRUITMENT LICENSE NO. 27-ユ-305184
+      </p>
+      <p className="text-gray-600 text-sm mt-6">
+        © 2026 PEMBRIDGE TALENT. All Rights Reserved.
+      </p>
     </div>
 
-   <div className="flex gap-8 text-sm tracking-[0.15em] uppercase">
-  <a
-    href="/privacy-policy"
-    className="text-gray-500 hover:text-red-600 transition"
-  >
-    {language === "en"
-      ? "Privacy Policy"
-      : "プライバシーポリシー"}
-  </a>
-<p className="text-gray-600 text-xs mt-4">
-  {language === "en"
-    ? "Recruitment License No. 27-ユ-305184"
-    : "有料職業紹介事業許可番号：27-ユ-305184"}
-</p>
-  <a
-    href="/terms"
-    className="text-gray-500 hover:text-red-600 transition"
-  >
-    {language === "en"
-      ? "Terms of Use"
-      : "利用規約"}
-  </a>
-</div>
+    <div className="md:text-center">
+      <a
+        href="/privacy-policy"
+        className="tracking-[0.35em] text-gray-500 hover:text-white transition"
+      >
+        {language === "en" ? "PRIVACY POLICY" : "プライバシーポリシー"}
+      </a>
+    </div>
 
+    <div className="md:text-right">
+      <a
+        href="/terms"
+        className="tracking-[0.35em] text-gray-500 hover:text-white transition"
+      >
+        {language === "en" ? "TERMS OF USE" : "利用規約"}
+      </a>
+    </div>
   </div>
 </footer>
     </main>
