@@ -870,7 +870,7 @@ useEffect(() => {
   </a>
 <p className="text-gray-600 text-xs mt-4">
   {language === "en"
-    ? "Employment Placement Business License No. XX-ユ-XXXXXX"
+    ? "Recruitment License No. 27-ユ-305184"
     : "有料職業紹介事業許可番号：27-ユ-305184"}
 </p>
   <a
