@@ -11,7 +11,7 @@ export default function Header() {
 <header className="fixed top-0 left-0 w-full z-50 border-b border-white/10 bg-black/40 backdrop-blur-md">
   <div className="relative max-w-7xl mx-auto px-6 py-4 flex items-center justify-center md:justify-between">
 
-    <a href="#" className="block">
+    <a href="/" className="block">
       <img
         src="/logo.png"
         alt="PEMBRIDGE TALENT"
@@ -20,23 +20,23 @@ export default function Header() {
     </a>
 
     <nav className="hidden md:flex items-center gap-6 text-xs tracking-widest text-gray-300">
-      <a href="#about" className="hover:text-white transition">
+      <a href="/#about" className="hover:text-white transition">
   {language === "en" ? "ABOUT" : "会社概要"}
 </a>
 
-<a href="#candidate" className="hover:text-white transition">
+<a href="/#candidate" className="hover:text-white transition">
   {language === "en" ? "CANDIDATE" : "候補者向け"}
 </a>
 
-<a href="#clients" className="hover:text-white transition">
+<a href="/#clients" className="hover:text-white transition">
   {language === "en" ? "COMPANIES" : "企業向け"}
 </a>
 
-<a href="#jobs" className="hover:text-white transition">
+<a href="/#jobs" className="hover:text-white transition">
   {language === "en" ? "JOBS" : "求人情報"}
 </a>
 
-<a href="#contact" className="hover:text-white transition">
+<a href="/#contact" className="hover:text-white transition">
   {language === "en" ? "CONTACT" : "お問い合わせ"}
 </a>
     <button
@@ -63,19 +63,19 @@ export default function Header() {
   {mobileMenuOpen && (
     <div className="md:hidden border-t border-white/10 bg-black/95">
       <nav className="flex flex-col items-center gap-6 py-8 text-sm tracking-[0.25em] text-gray-300">
-        <a href="#about" onClick={() => setMobileMenuOpen(false)}>
+        <a href="/#about" onClick={() => setMobileMenuOpen(false)}>
           {language === "en" ? "ABOUT" : "会社概要"}
         </a>
-        <a href="#candidate" onClick={() => setMobileMenuOpen(false)}>
+        <a href="/#candidate" onClick={() => setMobileMenuOpen(false)}>
           {language === "en" ? "CANDIDATE" : "候補者向け"}
         </a>
-        <a href="#clients" onClick={() => setMobileMenuOpen(false)}>
+        <a href="/#clients" onClick={() => setMobileMenuOpen(false)}>
           {language === "en" ? "COMPANIES" : "企業向け"}
         </a>
-        <a href="#jobs" onClick={() => setMobileMenuOpen(false)}>
+        <a href="/#jobs" onClick={() => setMobileMenuOpen(false)}>
           {language === "en" ? "JOBS" : "求人情報"}
         </a>
-        <a href="#contact" onClick={() => setMobileMenuOpen(false)}>
+        <a href="/#contact" onClick={() => setMobileMenuOpen(false)}>
           {language === "en" ? "CONTACT" : "お問い合わせ"}
         </a>
       <button
