@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Noto_Sans_JP,
+} from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import { LanguageProvider } from "./context/LanguageContext";
@@ -14,7 +18,11 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
+const notoSansJP = Noto_Sans_JP({
+  variable: "--font-noto-jp",
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+});
 export const metadata = {
   title: "PEMBRIDGE TALENT | Bilingual Recruitment & Executive Search in Japan",
 
@@ -54,8 +62,9 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+  lang="en"
+  className={`${geistSans.variable} ${geistMono.variable} ${notoSansJP.variable} h-full antialiased`}
+
     >
       <head>
         <Script

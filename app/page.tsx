@@ -146,7 +146,7 @@ useEffect(() => {
     duration: 1,
     ease: "easeOut",
   }}
-  className="text-6xl md:text-8xl font-semibold leading-tight"
+  className="hero-title text-6xl md:text-8xl font-semibold leading-tight"
 >
   Built on Trust.
   <br />

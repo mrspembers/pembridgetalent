@@ -33,19 +33,18 @@ export function LanguageProvider({
       setLanguageState(saved);
     }
   }, []);
-
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
     localStorage.setItem("language", lang);
   };
 
   return (
-    <LanguageContext.Provider
-      value={{ language, setLanguage }}
-    >
+  <LanguageContext.Provider value={{ language, setLanguage }}>
+    <div className={language === "jp" ? "lang-jp" : "lang-en"}>
       {children}
-    </LanguageContext.Provider>
-  );
+    </div>
+  </LanguageContext.Provider>
+);
 }
 
 export function useLanguage() {

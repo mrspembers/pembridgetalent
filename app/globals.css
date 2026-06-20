@@ -24,3 +24,38 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+.lang-jp {
+  font-family: var(--font-noto-jp), sans-serif;
+}
+.lang-jp h1:not(.hero-title) {
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+.lang-jp h2 {
+  font-size: 1.8rem;
+}
+
+@media (min-width: 768px) {
+  .lang-jp h1 {
+    font-size: 4rem;
+  }
+
+  .lang-jp h2 {
+    font-size: 2rem;
+  }
+}
+/* Hero title is always the same size regardless of language */
+.hero-title {
+  font-size: 3.75rem !important;
+  line-height: 1.1 !important;
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 6rem !important;
+  }
+}
+.lang-jp .hero-title {
+  font-family: var(--font-geist-sans), sans-serif !important;
+}
