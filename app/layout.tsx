@@ -49,12 +49,34 @@ export const metadata = {
     title: "PEMBRIDGE TALENT | Bilingual Recruitment in Japan",
     description:
       "Boutique recruitment and executive search connecting global companies with bilingual professionals across Japan.",
-    url: "https://pembridgetalent.com",
+    url: "https://www.pembridgetalent.com",
     siteName: "PEMBRIDGE TALENT",
     type: "website",
   },
 };
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "PEMBRIDGE TALENT",
+  url: "https://www.pembridgetalent.com",
+  logo: "https://www.pembridgetalent.com/logo.png",
+  description:
+    "PEMBRIDGE TALENT is a boutique recruitment and executive search firm connecting global companies with bilingual talent across Japan.",
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    email: "info@pembridgetalent.com",
+    areaServed: "JP",
+    availableLanguage: ["English", "Japanese"],
+  },
+};
 
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "PEMBRIDGE TALENT",
+  url: "https://www.pembridgetalent.com",
+};
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -81,9 +103,24 @@ export default function RootLayout({
             gtag('config', 'G-RZ8J2KDJ02');
           `}
         </Script>
+        <Script
+  id="organization-json-ld"
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify(organizationJsonLd),
+  }}
+/>
+
+<Script
+  id="website-json-ld"
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify(websiteJsonLd),
+  }}
+/>
       </head>
 
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col font-sans">
   <LanguageProvider>
     <Header />
     {children}

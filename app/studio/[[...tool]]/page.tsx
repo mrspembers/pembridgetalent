@@ -93,6 +93,56 @@ const job = {
       type: "array",
       of: [{ type: "string" }],
     },
+    {
+  name: "industry",
+  title: "Industry (EN)",
+  type: "string",
+},
+{
+  name: "industryJa",
+  title: "Industry (JA)",
+  type: "string",
+},
+{
+  name: "employmentType",
+  title: "Employment Type",
+  type: "string",
+  options: {
+    list: [
+      { title: "Permanent", value: "Permanent" },
+      { title: "Contract", value: "Contract" },
+      { title: "Temporary", value: "Temporary" },
+      { title: "Freelance", value: "Freelance" },
+    ],
+  },
+},
+{
+  name: "idealCandidate",
+  title: "Ideal Candidate (EN)",
+  type: "text",
+},
+{
+  name: "idealCandidateJa",
+  title: "Ideal Candidate (JA)",
+  type: "text",
+},
+{
+  name: "languages",
+  title: "Languages",
+  type: "object",
+  fields: [
+    {
+      name: "japanese",
+      title: "Japanese",
+      type: "string",
+    },
+    {
+      name: "english",
+      title: "English",
+      type: "string",
+    },
+  ],
+},
   
 ],
 };

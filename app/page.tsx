@@ -103,6 +103,8 @@ useEffect(() => {
 }
 }, [language]);
 
+const featuredJobs = jobs.slice(0, 3);
+
   return (
     <main className="bg-black text-white min-h-screen overflow-hidden">
     {/* HEADER */}
@@ -183,7 +185,7 @@ useEffect(() => {
 {/* ABOUT */}
 <section
   id="about"
-  className="py-32 px-6 md:px-20 border-t border-white/10"
+  className="pt-32 pb-20 px-6 md:px-20 border-t border-white/10"
 >
   <div className="max-w-7xl mx-auto">
 
@@ -277,7 +279,7 @@ useEffect(() => {
 {/* CANDIDATE SERVICES */}
 <section
   id="candidate"
-  className="py-32 px-6 md:px-20 border-t border-white/10 bg-[#070707]"
+  className="pt-24 pb-32 px-6 md:px-20 border-t border-white/10 bg-[#070707]"
 >
   <div className="max-w-7xl mx-auto">
     <div className="max-w-4xl mb-20">
@@ -638,11 +640,12 @@ useEffect(() => {
 </h2>
       </div>
 
-      <button className="hidden md:block border border-white/20 px-6 py-3 text-sm tracking-widest hover:bg-white hover:text-black transition">
-  {language === "en"
-    ? "VIEW ALL"
-    : "すべて見る"}
-</button>
+      <a
+  href="/jobs"
+  className="hidden md:block border border-white/20 px-6 py-3 text-sm tracking-widest hover:bg-white hover:text-black transition"
+>
+  {language === "en" ? "VIEW ALL" : "すべて見る"}
+</a>
 
     </div>
 
@@ -655,7 +658,7 @@ useEffect(() => {
         </div>
       
 
-  {jobs.map((job) => (
+  {featuredJobs.map((job) => (
   <div
     key={job._id}
     className="group border border-white/10 hover:border-red-700 transition p-8 bg-black/40 backdrop-blur-sm"

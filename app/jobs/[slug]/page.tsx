@@ -1,4 +1,7 @@
 import { client } from "../../../lib/sanity";
+import JobDetailClient from "./JobDetailClient";
+import Header from "../../components/Header";
+
 export async function generateMetadata({
   params,
 }: {
@@ -6,24 +9,56 @@ export async function generateMetadata({
 }) {
   const { slug } = await params;
 
-  const job = await client.fetch(
-    `*[_type == "job" && slug.current == $slug][0]{
-      title,
-      location,
-      category,
-      salary,
-      description
-    }`,
-    { slug }
-  );
+ const job = await client.fetch(
+  `*[_type == "job" && slug.current == $slug][0]{
+    title,
+    titleJa,
+
+    location,
+    locationJa,
+
+    company,
+    companyJa,
+
+    salary,
+    salaryJa,
+
+    description,
+    descriptionJa,
+
+    industry,
+    industryJa,
+
+    employmentType,
+idealCandidate,
+idealCandidateJa,
+languages,
+
+    introduction,
+    introductionJa,
+
+    responsibilities,
+    responsibilitiesJa,
+
+    requirements,
+    requirementsJa
+  }`,
+  { slug }
+);
 
   return {
-    title: `${job?.title || "Job Opportunity"} | PEMBRIDGE TALENT`,
-    description:
-      job?.description ||
-      "Explore bilingual career opportunities across Japan with PEMBRIDGE TALENT.",
-  };
+  title: `${job?.title || "Job Opportunity"} | PEMBRIDGE TALENT`,
+  description:
+    job?.introduction ||
+    job?.description ||
+    "Explore bilingual career opportunities across Japan with PEMBRIDGE TALENT.",
+
+  alternates: {
+    canonical: `https://www.pembridgetalent.com/jobs/${slug}`,
+  },
+};
 }
+
 export default async function JobPage({
   params,
 }: {
@@ -34,52 +69,73 @@ export default async function JobPage({
   const job = await client.fetch(
     `*[_type == "job" && slug.current == $slug][0]{
       title,
+      titleJa,
       location,
-      category,
+      locationJa,
+      industry,
+      industryJa,
+      employmentType,
+      idealCandidate,
+      idealCandidateJa,
+      languages,
       salary,
-      description
+      salaryJa,
+      description,
+      descriptionJa,
+      company,
+      companyJa,
+      introduction,
+      introductionJa,
+      responsibilities,
+      responsibilitiesJa,
+      requirements,
+      requirementsJa
     }`,
     { slug }
   );
 
   if (!job) {
-    return (
-      <main className="min-h-screen bg-black text-white flex items-center justify-center">
-        Job not found
-      </main>
-    );
-  }
-
   return (
-    <main className="min-h-screen bg-black text-white px-6 md:px-20 py-32">
-
-      <div className="max-w-5xl mx-auto">
-
-        <p className="text-red-700 tracking-[0.3em] text-sm mb-6">
-          {job.location} / {job.category}
-        </p>
-
-        <h1 className="text-5xl md:text-7xl mb-10">
-          {job.title}
-        </h1>
-
-        <p className="text-3xl mb-16">
-          {job.salary}
-        </p>
-
-        <div className="max-w-3xl text-gray-400 leading-8 text-lg">
-          {job.description}
-        </div>
-
-        <a
-  href={`/?apply=${encodeURIComponent(job.title)}#contact`}
-  className="inline-block mt-16 bg-red-700 hover:bg-red-800 transition px-10 py-4 tracking-[0.2em] text-sm"
->
-  APPLY NOW
-</a>
-
-      </div>
-
+    <main className="min-h-screen bg-black text-white flex items-center justify-center">
+      Job not found
     </main>
   );
+}
+const jobPostingJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "JobPosting",
+  title: job.title,
+  description: job.introduction || job.description || job.title,
+  employmentType: job.employmentType,
+  hiringOrganization: {
+    "@type": "Organization",
+    name: "PEMBRIDGE TALENT",
+    sameAs: "https://www.pembridgetalent.com",
+  },
+  jobLocation: {
+    "@type": "Place",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: job.location || "Tokyo",
+      addressCountry: "JP",
+    },
+  },
+  industry: job.industry,
+  url: `https://www.pembridgetalent.com/jobs/${slug}`,
+};
+
+return (
+  <>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(jobPostingJsonLd),
+      }}
+    />
+
+    <Header />
+    <JobDetailClient job={job} />
+ 
+  </>
+);
 }
