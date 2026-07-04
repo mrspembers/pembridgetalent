@@ -642,7 +642,7 @@ const featuredJobs = jobs.slice(0, 3);
 
       <a
   href="/jobs"
-  className="hidden md:block border border-white/20 px-6 py-3 text-sm tracking-widest hover:bg-white hover:text-black transition"
+  className="inline-block border border-white/20 px-6 py-3 text-sm tracking-widest hover:bg-white hover:text-black transition"
 >
   {language === "en" ? "VIEW ALL" : "すべて見る"}
 </a>
