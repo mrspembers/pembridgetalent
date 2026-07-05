@@ -622,99 +622,88 @@ const featuredJobs = jobs.slice(0, 3);
 </div>
 </section>
 {/* LIVE JOBS */}
-<section id="jobs" className="py-32 px-6 md:px-20 border-t border-white/10 bg-[#070707]">
-  
+<section
+  id="jobs"
+  className="py-32 px-6 md:px-20 border-t border-white/10 bg-[#070707]"
+>
   <div className="max-w-7xl mx-auto">
-    
-    <div className="flex items-end justify-between mb-16">
-      
+    <div className="flex items-end justify-between mb-10 md:mb-16">
       <div>
         <p className="text-red-700 tracking-[0.3em] text-sm mb-4">
-  {language === "en" ? "JOBS" : "求人情報"}
-</p>
+          {language === "en" ? "JOBS" : "求人情報"}
+        </p>
 
         <h2 className="text-4xl md:text-5xl leading-tight">
-  {language === "en"
-    ? "Featured Roles"
-    : "厳選求人"}
-</h2>
+          {language === "en" ? "Featured Roles" : "厳選求人"}
+        </h2>
       </div>
 
       <a
-  href="/jobs"
-  className="inline-block border border-white/20 px-6 py-3 text-sm tracking-widest hover:bg-white hover:text-black transition"
->
-  {language === "en" ? "VIEW ALL" : "すべて見る"}
-</a>
+        href="/jobs"
+        className="hidden md:inline-block border border-white/20 px-6 py-3 text-sm tracking-widest hover:bg-white hover:text-black transition"
+      >
+        {language === "en" ? "VIEW ALL" : "すべて見る"}
+      </a>
+    </div>
 
+    <div className="md:hidden mb-10">
+      <a
+        href="/jobs"
+        className="inline-block border border-white/20 px-6 py-3 text-sm tracking-widest hover:bg-white hover:text-black transition"
+      >
+        {language === "en" ? "VIEW ALL" : "すべて見る"}
+      </a>
     </div>
 
     <div className="space-y-6">
+      {featuredJobs.map((job) => (
+        <div
+          key={job._id}
+          className="group border border-white/10 hover:border-red-700 transition p-8 bg-black/40 backdrop-blur-sm"
+        >
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+              <p className="text-sm tracking-[0.2em] text-gray-500 mb-3">
+                {language === "en"
+                  ? job.location
+                  : job.locationJa || job.location}
+                {" / "}
+                {language === "en"
+                  ? job.industry
+                  : job.industryJa || job.industry}
+              </p>
 
-     
+              <a href={`/jobs/${job.slug?.current}`} className="block">
+                <h3 className="text-3xl mb-4 group-hover:text-red-600 transition">
+                  {language === "en" ? job.title : job.titleJa || job.title}
+                </h3>
+              </a>
 
+              <p className="text-gray-400 max-w-2xl">
+                {language === "en"
+                  ? job.description
+                  : job.descriptionJa || job.description}
+              </p>
+            </div>
+
+            <div className="text-left md:text-right">
+              <p className="text-2xl mb-3">
+                {language === "en" ? job.salary : job.salaryJa || job.salary}
+              </p>
+
+              <button
+                type="button"
+                onClick={() => handleApply(job.title || "")}
+                className="inline-block border border-white/20 px-5 py-3 text-sm tracking-widest hover:bg-white hover:text-black transition"
+              >
+                {language === "en" ? "APPLY" : "応募する"}
+              </button>
+            </div>
           </div>
-
         </div>
-      
-
-  {featuredJobs.map((job) => (
-  <div
-    key={job._id}
-    className="group border border-white/10 hover:border-red-700 transition p-8 bg-black/40 backdrop-blur-sm"
-  >
-    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-
-      <div>
-        <p className="text-sm tracking-[0.2em] text-gray-500 mb-3">
-          {language === "en"
-  ? job.location
-  : job.locationJa}
-{" / "}
-{language === "en"
-  ? job.category
-  : job.categoryJa}
-        </p>
-
-        <a
-  href={`/jobs/${job.slug?.current}`}
-  className="block"
->
-  <h3 className="text-3xl mb-4 group-hover:text-red-600 transition">
-    {language === "en"
-  ? job.title
-  : job.titleJa}
-  </h3>
-</a>
-
-        <p className="text-gray-400 max-w-2xl">
-          {language === "en"
-  ? job.description
-  : job.descriptionJa}
-        </p>
-      </div>
-
-      <div className="text-left md:text-right">
-
-        <p className="text-2xl mb-3">
-          {language === "en"
-  ? job.salary
-  : job.salaryJa}
-        </p>
-
-        <button
-  type="button"
-  onClick={() => handleApply(job.title)}
-  className="inline-block border border-white/20 px-5 py-3 text-sm tracking-widest hover:bg-white hover:text-black transition"
->
-  {language === "en"
-    ? "APPLY"
-    : "応募する"}
-</button>
-      </div>
+      ))}
     </div>
   </div>
-))}
 </section>
 {/* CONTACT */}
 <section
