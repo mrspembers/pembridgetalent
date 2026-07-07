@@ -74,7 +74,7 @@ export default function TermsPage() {
   const t = content[language];
 
   return (
-    <main className="min-h-screen bg-black text-white px-6 md:px-20 py-32">
+    <main className="min-h-screen bg-black text-white px-6 md:px-20 py-20 md:py-32">
       <div className="max-w-4xl mx-auto">
         <p className="text-red-700 tracking-[0.3em] text-sm mb-6">
           {t.label}

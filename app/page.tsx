@@ -366,18 +366,17 @@ const featuredJobs = jobs.slice(0, 3);
 </div>
 
 </div>
-{/* CANDIDATE IMAGE */}
 <motion.div
   initial={{ opacity: 0, y: 28 }}
   whileInView={{ opacity: 1, y: 0 }}
   viewport={{ once: true, amount: 0.25 }}
   transition={{ duration: 0.8, ease: "easeOut" }}
-  className="mb-20 overflow-hidden border border-white/10"
+  className="mt-12 md:mt-20 mb-20 overflow-hidden border border-white/10"
 >
   <img
     src="/candidate.png"
     alt="Bilingual professional"
-    className="w-full h-[620px] object-cover"
+    className="w-full h-[360px] md:h-[620px] object-cover"
   />
 </motion.div>
 
