@@ -108,47 +108,47 @@ const requirements =
       <>
     <main className="min-h-screen bg-black text-white px-6 md:px-20 pt-24 pb-20 md:py-32">
       <div className="max-w-5xl mx-auto">
-        <p className="text-red-700 tracking-[0.3em] text-sm mb-6">
+        <p className="text-red-700 tracking-[0.3em] text-xs md:text-sm mb-4 md:mb-6">
           {location} / {company}
         </p>
 
-        <h1 className="text-5xl md:text-7xl mb-10">{title}</h1>
+        <h1 className="text-4xl md:text-7xl mb-8 md:mb-10">{title}</h1>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          <div className="border border-white/10 p-6 bg-black/40">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-10 md:mb-16">
+          <div className="border border-white/10 p-5 md:p-6 bg-black/40">
             <p className="text-gray-500 text-sm tracking-[0.3em] mb-3">
               {language === "en" ? "SALARY RANGE" : "給与レンジ"}
             </p>
-            <p className="text-2xl">{salary}</p>
+            <p className="text-xl md:text-2xl">{salary}</p>
           </div>
 
-          <div className="border border-white/10 p-6 bg-black/40">
+          <div className="border border-white/10 p-5 md:p-6 bg-black/40">
             <p className="text-gray-500 text-sm tracking-[0.3em] mb-3">
              {language === "en" ? "COMPANY" : "企業"}
             </p>
-            <p className="text-2xl">{company}</p>
+            <p className="text-xl md:text-2xl">{company}</p>
           </div>
           {industry && (
-  <div className="border border-white/10 p-6 bg-black/40">
+  <div className="border border-white/10 p-5 md:p-6 bg-black/40">
     <p className="text-gray-500 text-sm tracking-[0.3em] mb-3">
       {language === "en" ? "INDUSTRY" : "業界"}
     </p>
-    <p className="text-2xl">{industry}</p>
+    <p className="text-xl md:text-2xl">{industry}</p>
   </div>
 )}
 
 {job.employmentType && (
-  <div className="border border-white/10 p-6 bg-black/40">
+  <div className="border border-white/10 p-5 md:p-6 bg-black/40">
     <p className="text-gray-500 text-sm tracking-[0.3em] mb-3">
       {language === "en" ? "EMPLOYMENT" : "雇用形態"}
     </p>
-    <p className="text-2xl">
+    <p className="text-xl md:text-2xl">
   {formatEmploymentType(job.employmentType, language)}
 </p>
   </div>
 )}
         </div>
-<div className="mb-20">
+<div className="mb-12 md:mb-20">
   <a
     href={`/?apply=${encodeURIComponent(title ?? "")}#contact`}
     className="inline-block bg-red-700 hover:bg-red-800 transition px-10 py-4 tracking-[0.2em] text-sm"
@@ -157,22 +157,22 @@ const requirements =
   </a>
 </div>
         {introduction && (
-          <section className="mb-16">
-            <p className="text-red-700 tracking-[0.3em] text-sm mb-6">
+          <section className="mb-10 md:mb-16">
+            <p className="text-red-700 tracking-[0.3em] text-xs md:text-sm mb-4 md:mb-6">
               {language === "en" ? "INTRODUCTION" : "概要"}
             </p>
-            <div className="max-w-3xl text-gray-400 leading-8 text-lg whitespace-pre-line">
+            <div className="max-w-3xl text-gray-400 leading-7 md:leading-8 text-base md:text-lg whitespace-pre-line">
               {introduction}
             </div>
           </section>
         )}
 
         {responsibilities?.length > 0 && (
-          <section className="mb-16">
-            <p className="text-red-700 tracking-[0.3em] text-sm mb-6">
+          <section className="mb-10 md:mb-16">
+            <p className="text-red-700 tracking-[0.3em] text-xs md:text-sm mb-4 md:mb-6">
               {language === "en" ? "RESPONSIBILITIES" : "仕事内容"}
             </p>
-            <ul className="max-w-3xl space-y-4 text-gray-400 leading-8 text-lg">
+            <ul className="max-w-3xl space-y-4 text-gray-400 leading-7 md:leading-8 text-base md:text-lg">
               {responsibilities.map((item: string) => (
                 <li
   key={item}
@@ -186,11 +186,11 @@ const requirements =
         )}
 
         {requirements.length > 0 && (
-  <section className="mb-16">
-    <p className="text-red-700 tracking-[0.3em] text-sm mb-6">
+  <section className="mb-10 md:mb-16">
+    <p className="text-red-700 tracking-[0.3em] text-xs md:text-sm mb-4 md:mb-6">
       {language === "en" ? "REQUIREMENTS" : "応募条件"}
     </p>
-    <ul className="max-w-3xl space-y-4 text-gray-400 leading-8 text-lg">
+    <ul className="max-w-3xl space-y-4 text-gray-400 leading-7 md:leading-8 text-base md:text-lg">
       {requirements.map((item: string) => (
         <li
   key={item}
@@ -204,14 +204,14 @@ const requirements =
 )}
 
 {languages && (languages.japanese || languages.english) && (
-  <section className="mb-16">
-    <p className="text-red-700 tracking-[0.3em] text-sm mb-6">
+  <section className="mb-10 md:mb-16">
+    <p className="text-red-700 tracking-[0.3em] text-xs md:text-sm mb-4 md:mb-6">
       {language === "en" ? "LANGUAGES" : "語学力"}
     </p>
 
     <div className="max-w-3xl grid md:grid-cols-2 gap-6">
       {languages.japanese && (
-        <div className="border border-white/10 p-6 bg-black/40">
+        <div className="border border-white/10 p-5 md:p-6 bg-black/40">
           <p className="text-gray-500 text-sm tracking-[0.3em] mb-3">
             {language === "en" ? "JAPANESE" : "日本語"}
           </p>
@@ -235,12 +235,12 @@ const requirements =
   </section>
 )}
 {idealCandidate && (
-  <section className="mb-16">
-    <p className="text-red-700 tracking-[0.3em] text-sm mb-6">
+  <section className="mb-10 md:mb-16">
+    <p className="text-red-700 tracking-[0.3em] text-xs md:text-sm mb-4 md:mb-6">
       {language === "en" ? "IDEAL CANDIDATE" : "求める人物像"}
     </p>
 
-    <div className="max-w-3xl text-gray-400 leading-8 text-lg whitespace-pre-line">
+    <div className="max-w-3xl text-gray-400 leading-7 md:leading-8 text-base md:text-lg whitespace-pre-line">
       {idealCandidate}
     </div>
   </section>
