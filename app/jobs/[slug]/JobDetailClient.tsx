@@ -115,22 +115,22 @@ const requirements =
         <h1 className="text-4xl md:text-7xl mb-8 md:mb-10">{title}</h1>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-10 md:mb-16">
-          <div className="border border-white/10 p-5 md:p-6 bg-black/40">
-            <p className="text-gray-500 text-sm tracking-[0.3em] mb-3">
+          <div className="border border-white/10 p-4 md:p-6 bg-black/40">
+            <p className="text-gray-500 text-sm tracking-[0.3em] mb-2 md:mb-3">
               {language === "en" ? "SALARY RANGE" : "給与レンジ"}
             </p>
             <p className="text-xl md:text-2xl">{salary}</p>
           </div>
 
-          <div className="border border-white/10 p-5 md:p-6 bg-black/40">
-            <p className="text-gray-500 text-sm tracking-[0.3em] mb-3">
+          <div className="border border-white/10 p-4 md:p-6 bg-black/40">
+            <p className="text-gray-500 text-sm tracking-[0.3em] mb-2 md:mb-3">
              {language === "en" ? "COMPANY" : "企業"}
             </p>
             <p className="text-xl md:text-2xl">{company}</p>
           </div>
           {industry && (
-  <div className="border border-white/10 p-5 md:p-6 bg-black/40">
-    <p className="text-gray-500 text-sm tracking-[0.3em] mb-3">
+  <div className="border border-white/10 p-4 md:p-6 bg-black/40">
+    <p className="text-gray-500 text-sm tracking-[0.3em] mb-2 md:mb-3">
       {language === "en" ? "INDUSTRY" : "業界"}
     </p>
     <p className="text-xl md:text-2xl">{industry}</p>
@@ -138,8 +138,8 @@ const requirements =
 )}
 
 {job.employmentType && (
-  <div className="border border-white/10 p-5 md:p-6 bg-black/40">
-    <p className="text-gray-500 text-sm tracking-[0.3em] mb-3">
+  <div className="border border-white/10 p-4 md:p-6 bg-black/40">
+    <p className="text-gray-500 text-sm tracking-[0.3em] mb-2 md:mb-3">
       {language === "en" ? "EMPLOYMENT" : "雇用形態"}
     </p>
     <p className="text-xl md:text-2xl">
@@ -211,8 +211,8 @@ const requirements =
 
     <div className="max-w-3xl grid md:grid-cols-2 gap-6">
       {languages.japanese && (
-        <div className="border border-white/10 p-5 md:p-6 bg-black/40">
-          <p className="text-gray-500 text-sm tracking-[0.3em] mb-3">
+        <div className="border border-white/10 p-4 md:p-6 bg-black/40">
+          <p className="text-gray-500 text-sm tracking-[0.3em] mb-2 md:mb-3">
             {language === "en" ? "JAPANESE" : "日本語"}
           </p>
          <p className="text-xl text-gray-300">
@@ -222,8 +222,8 @@ const requirements =
       )}
 
       {languages.english && (
-        <div className="border border-white/10 p-6 bg-black/40">
-          <p className="text-gray-500 text-sm tracking-[0.3em] mb-3">
+        <div className="border border-white/10 p-4 md:p-6 bg-black/40">
+          <p className="text-gray-500 text-sm tracking-[0.3em] mb-2 md:mb-3">
             {language === "en" ? "ENGLISH" : "英語"}
           </p>
           <p className="text-xl text-gray-300">
