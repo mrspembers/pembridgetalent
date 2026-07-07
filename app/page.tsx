@@ -189,7 +189,7 @@ const featuredJobs = jobs.slice(0, 3);
 >
   <div className="max-w-7xl mx-auto">
 
-    <div className="max-w-4xl mb-20">
+    <div className="max-w-4xl mb-12 md:mb-20">
      <p className="text-red-700 tracking-[0.3em] text-sm mb-6">
   {language === "en" ? "ABOUT PEMBRIDGE TALENT" : "PEMBRIDGE TALENTについて"}
 </p>
@@ -201,18 +201,18 @@ const featuredJobs = jobs.slice(0, 3);
       </h2>
     </div>
 
-    <div className="relative mb-20 overflow-hidden">
+    <div className="relative mb-12 md:mb-20 overflow-hidden">
  <motion.div
   initial={{ opacity: 0, y: 28 }}
   whileInView={{ opacity: 1, y: 0 }}
   viewport={{ once: true, amount: 0.25 }}
   transition={{ duration: 0.8, ease: "easeOut" }}
-  className="relative mb-20 overflow-hidden border border-white/10"
+  className="relative mb-12 md:mb-20 overflow-hidden border border-white/10"
 >
   <img
     src="/about.png"
     alt="Global recruitment network"
-    className="w-full h-[520px] object-cover"
+    className="w-full h-[360px] md:h-[520px] object-cover"
   />
   <div className="absolute inset-0 bg-black/20" />
 </motion.div>
@@ -282,7 +282,7 @@ const featuredJobs = jobs.slice(0, 3);
   className="pt-24 pb-32 px-6 md:px-20 border-t border-white/10 bg-[#070707]"
 >
   <div className="max-w-7xl mx-auto">
-    <div className="max-w-4xl mb-20">
+    <div className="max-w-4xl mb-12 md:mb-20">
       <p className="text-red-700 tracking-[0.3em] text-sm mb-6">
   {language === "en" ? "CANDIDATE SERVICES" : "候補者向けサービス"}
 </p>
@@ -466,10 +466,10 @@ const featuredJobs = jobs.slice(0, 3);
 </section>
 
 {/* CLIENT SERVICES */}
-<section id="clients" className="py-32 px-6 md:px-20 border-t border-white/10">
+<section id="clients" className="py-20 md:py-32 px-6 md:px-20 border-t border-white/10">
   <div className="max-w-7xl mx-auto">
 
-    <div className="max-w-4xl mb-20">
+    <div className="max-w-4xl mb-12 md:mb-20">
       <p className="text-red-700 tracking-[0.3em] text-sm mb-6">
         {language === "en" ? "COMPANIES" : "企業向けサービス"}
       </p>
@@ -549,12 +549,12 @@ const featuredJobs = jobs.slice(0, 3);
   whileInView={{ opacity: 1, y: 0 }}
   viewport={{ once: true, amount: 0.25 }}
   transition={{ duration: 0.8, ease: "easeOut" }}
-  className="mt-20 mb-20 overflow-hidden border border-white/10"
+  className="mt-12 md:mt-20 mb-12 md:mb-20 overflow-hidden border border-white/10"
 >
   <img
     src="/client.png"
     alt="Client services"
-    className="w-full h-[520px] object-cover"
+    className="w-full h-[360px] md:h-[520px] object-cover"
   />
 </motion.div>
 
@@ -623,7 +623,7 @@ const featuredJobs = jobs.slice(0, 3);
 {/* LIVE JOBS */}
 <section
   id="jobs"
-  className="py-32 px-6 md:px-20 border-t border-white/10 bg-[#070707]"
+  className="py-20 md:py-32 px-6 md:px-20 border-t border-white/10 bg-[#070707]"
 >
   <div className="max-w-7xl mx-auto">
     <div className="flex items-end justify-between mb-10 md:mb-16">
@@ -658,9 +658,9 @@ const featuredJobs = jobs.slice(0, 3);
       {featuredJobs.map((job) => (
         <div
           key={job._id}
-          className="group border border-white/10 hover:border-red-700 transition p-8 bg-black/40 backdrop-blur-sm"
+          className="group border border-white/10 hover:border-red-700 transition p-5 md:p-8 bg-black/40 backdrop-blur-sm"
         >
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-6">
             <div>
               <p className="text-sm tracking-[0.2em] text-gray-500 mb-3">
                 {language === "en"
@@ -673,7 +673,7 @@ const featuredJobs = jobs.slice(0, 3);
               </p>
 
               <a href={`/jobs/${job.slug?.current}`} className="block">
-                <h3 className="text-3xl mb-4 group-hover:text-red-600 transition">
+                <h3 className="text-2xl md:text-3xl mb-3 md:mb-4 group-hover:text-red-600 transition">
                   {language === "en" ? job.title : job.titleJa || job.title}
                 </h3>
               </a>
@@ -686,14 +686,14 @@ const featuredJobs = jobs.slice(0, 3);
             </div>
 
             <div className="text-left md:text-right">
-              <p className="text-2xl mb-3">
+              <p className="text-xl md:text-2xl mb-3">
                 {language === "en" ? job.salary : job.salaryJa || job.salary}
               </p>
 
               <button
                 type="button"
                 onClick={() => handleApply(job.title || "")}
-                className="inline-block border border-white/20 px-5 py-3 text-sm tracking-widest hover:bg-white hover:text-black transition"
+                className="inline-block border border-white/20 px-4 py-2.5 md:px-5 md:py-3 text-xs md:text-sm tracking-widest hover:bg-white hover:text-black transition"
               >
                 {language === "en" ? "APPLY" : "応募する"}
               </button>
@@ -707,7 +707,7 @@ const featuredJobs = jobs.slice(0, 3);
 {/* CONTACT */}
 <section
   id="contact"
-  className="relative py-32 px-6 md:px-20 border-t border-white/10 overflow-hidden"
+  className="relative py-20 md:py-32 px-6 md:px-20 border-t border-white/10 overflow-hidden"
 >
   <img
     src="/contact.png"
