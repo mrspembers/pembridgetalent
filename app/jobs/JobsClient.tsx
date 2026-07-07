@@ -48,7 +48,7 @@ export default function JobsClient({ jobs }: { jobs: Job[] }) {
                   : job.industryJa || job.industry}
               </p>
 
-              <h2 className="text-2xl md:text-3xl mb-3 md:mb-4">
+              <h2 className="text-2xl md:text-4xl mb-3 md:mb-4 leading-tight">
                 {language === "en"
                   ? job.title
                   : job.titleJa || job.title}
