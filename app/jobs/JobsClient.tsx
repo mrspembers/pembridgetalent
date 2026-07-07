@@ -27,7 +27,7 @@ export default function JobsClient({ jobs }: { jobs: Job[] }) {
           {language === "en" ? "JOBS" : "求人情報"}
         </p>
 
-        <h1 className="text-4xl md:text-7xl mb-10 md:mb-16">
+        <h1 className="text-3xl md:text-7xl mb-10 md:mb-16">
           {language === "en" ? "All Jobs" : "求人一覧"}
         </h1>
 
@@ -36,7 +36,7 @@ export default function JobsClient({ jobs }: { jobs: Job[] }) {
             <a
               key={job._id}
               href={`/jobs/${job.slug?.current}`}
-              className="group block border border-white/10 hover:border-red-700 transition p-5 md:p-8 bg-black/40"
+              className="group block border border-white/10 hover:border-red-700 transition p-4 md:p-8 bg-black/40"
             >
               <p className="text-xs md:text-sm tracking-[0.2em] text-gray-500 mb-3">
                 {language === "en"
@@ -48,13 +48,13 @@ export default function JobsClient({ jobs }: { jobs: Job[] }) {
                   : job.industryJa || job.industry}
               </p>
 
-              <h2 className="text-2xl md:text-4xl mb-3 md:mb-4 leading-tight">
+              <h2 className="text-xl md:text-4xl leading-snug mb-3">
                 {language === "en"
                   ? job.title
                   : job.titleJa || job.title}
               </h2>
 
-              <p className="text-lg md:text-2xl text-gray-300">
+              <p className="text-base md:text-2xl text-gray-300">
                 {language === "en"
                   ? job.salary
                   : job.salaryJa || job.salary}
