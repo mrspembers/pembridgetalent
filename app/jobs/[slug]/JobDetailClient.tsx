@@ -106,7 +106,7 @@ const requirements =
 
   return (
       <>
-    <main className="min-h-screen bg-black text-white px-6 md:px-20 py-32">
+    <main className="min-h-screen bg-black text-white px-6 md:px-20 pt-24 pb-20 md:py-32">
       <div className="max-w-5xl mx-auto">
         <p className="text-red-700 tracking-[0.3em] text-sm mb-6">
           {location} / {company}
