@@ -44,15 +44,22 @@ export const metadata = {
   verification: {
     google: "GXF1UeqdygQT9kbRK0pVRHDK3qtPUQIWNOpBjMoL_XE",
   },
-
   openGraph: {
-    title: "PEMBRIDGE TALENT | Bilingual Recruitment in Japan",
-    description:
-      "Boutique recruitment and executive search connecting global companies with bilingual professionals across Japan.",
-    url: "https://www.pembridgetalent.com",
-    siteName: "PEMBRIDGE TALENT",
-    type: "website",
-  },
+  title: "PEMBRIDGE TALENT | Bilingual Recruitment in Japan",
+  description:
+    "Boutique recruitment and executive search connecting global companies with bilingual professionals across Japan.",
+  url: "https://www.pembridgetalent.com",
+  siteName: "PEMBRIDGE TALENT",
+  type: "website",
+  images: [
+    {
+      url: "https://www.pembridgetalent.com/og-image.png",
+      width: 1200,
+      height: 630,
+      alt: "PEMBRIDGE TALENT",
+    },
+  ],
+},
 };
 const organizationJsonLd = {
   "@context": "https://schema.org",
